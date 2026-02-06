@@ -60,7 +60,7 @@
 		}
 	}
 
-	function showRes(k) {
+	/*function showRes(k) {
 		const mainFrame = document.querySelector("#mainFrame");
 		mainFrame.innerHTML = "<ul>";
 		for (let [i, j] of Object.entries(k)) {
@@ -69,5 +69,60 @@
 				`<li> ${j.P_ID} - ${j.P_BODY} - ${j.CREATED_AT} </li>`;
 		}
 		mainFrame.innerHTML = mainFrame.innerHTML + "</ul>";
+	}*/
+
+	/*function showRes(k) {
+		const mainFrame = document.querySelector("#mainFrame");
+		while (mainFrame.hasChildNodes()) {
+			mainFrame.removeChild(mainFrame.firstChild);
+		}
+		for (let [i, j] of Object.entries(k)) {
+			const postCard = document.createElement("div");
+			const postId = document.createElement("p");
+			const postBody = document.createElement("p");
+			const postDate = document.createElement("p");
+			const br = document.createElement("br");
+			postCard.style.width = "300px";
+			postCard.style.height = "220px";
+			postCard.style.border = "2px solid red";
+			postCard.style.textAlign = "center";
+			postCard.style.wordBreak = "break-all";
+			postCard.style.overflowY = "scroll";
+			postId.textContent = "Post ID:" + j.P_ID;
+			postBody.textContent = j.P_BODY;
+			postDate.textContent = "UPLOAD DATE: " + j.CREATED_AT;
+			postCard.appendChild(postId);
+			postCard.appendChild(postBody);
+			postCard.appendChild(postDate);
+			mainFrame.appendChild(postCard);
+			mainFrame.appendChild(br);
+		}
+	}*/
+	function showRes(k) {
+		const mainFrame = document.querySelector("#mainFrame");
+		while (mainFrame.hasChildNodes()) {
+			mainFrame.removeChild(mainFrame.firstChild);
+		}
+		for (let [i, j] of Object.entries(k)) {
+			const postCard = document.createElement("div");
+			const postId = document.createElement("p");
+			const postBody = document.createElement("p");
+			const postDate = document.createElement("p");
+			const br = document.createElement("br");
+			postCard.classList.add("postCard");
+			postId.classList.add("postId");
+			postBody.classList.add("postBody");
+			postDate.classList.add("postDate");
+			postId.textContent = "Post ID: " + j.P_ID;
+			postBody.textContent = j.P_BODY;
+			postDate.textContent = "UPLOAD DATE: " + j.CREATED_AT;
+			postCard.appendChild(postId);
+			postCard.appendChild(postBody);
+			postCard.appendChild(postDate);
+			mainFrame.appendChild(postCard);
+			mainFrame.appendChild(br);
+		}
 	}
+	const br = document.createElement("br");
+	mainFrame.appendChild(br);
 })();
