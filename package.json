@@ -1,0 +1,12 @@
+{
+  "name": "spaandexpresstest",
+  "version": "1.0.0",
+  "description": "Hi",
+  "license": "ISC",
+  "author": "Lefteris",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "meow"
+  }
+}
