@@ -18,12 +18,12 @@ app.use(express.static(path.join(__dirname, pathToFrontEnd)));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/redirectToLogin", function serveLogin(req, res) {
-	res.redirect(path.join(__dirname, "../frontEnd/login.html"));
+app.get("/index", function serveIndex(req, res) {
+	res.sendFile(path.join(__dirname, "../frontEnd/index.html"));
 });
 
-app.get("/", function serveIndex(req, res) {
-	res.sendFile(path.join(__dirname, "../frontEnd/index.html"));
+app.get("/login", function serveLogin(req, res) {
+	res.sendFile(path.join(__dirname, "../frontEnd/login.html"));
 });
 
 app.post("/registerFormData", async function sendRegisterData(req, res) {
